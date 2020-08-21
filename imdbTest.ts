@@ -46,23 +46,34 @@ movie3.distributor = "Foro Coches"
 
 let miImdb: Imdb = new Imdb ([movie1,movie2,movie3])
 
-console.log(miImdb.peliculas[0])
+
+// console.log(miImdb.peliculas[0])
 
 
-
+// CONVERTIR A JASON EL OBJETO IMDB.
+// GUARDAR EL OBJETO EN UN ARCHIVO JSON CON EL NOMBRE "imdbBBDD.json".
 
 const fs = require("fs");
 
 let miJson = JSON.stringify(miImdb)
 
-fs.writeFile('./imdbBBDD.pdf', miJson, error => {
-  if (error)
-    console.log(error);
-  else
-    console.log('El archivo fue creado');
-});
-
-console.log('última línea del programa');
+fs.writeFile('imdbBBDD.json', miJson);
 
 
+
+let objeto = fs.readFileSync('./imdbBBDD.json');
+
+
+let miImdb2: Imdb = JSON.parse(objeto)
+
+console.log(miImdb2.peliculas[0].actors[1].name)
+
+
+miImdb.escribirEnFicheroJSON("newIMDB.json")
+
+
+// let newObjeto = fs.readFileSync('./newIMDB.json');
+// let miImdb3: Imdb = JSON.parse(newObjeto);
+
+miImdb3.obtenerInstanciaIMBD("newIMBD")
 
