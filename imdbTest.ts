@@ -47,3 +47,22 @@ movie3.distributor = "Foro Coches"
 let miImdb: Imdb = new Imdb ([movie1,movie2,movie3])
 
 console.log(miImdb.peliculas[0])
+
+
+
+
+const fs = require("fs");
+
+let miJson = JSON.stringify(miImdb)
+
+fs.writeFile('./imdbBBDD.pdf', miJson, error => {
+  if (error)
+    console.log(error);
+  else
+    console.log('El archivo fue creado');
+});
+
+console.log('última línea del programa');
+
+
+
