@@ -47,4 +47,7 @@ movie3.producer = "La Duquesa de Alba";
 movie3.distributor = "Foro Coches"
 
 
+console.log(movie1.toString());
+console.log(movie2.toString());
 console.log(movie3.toString());
+
