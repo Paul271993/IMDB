@@ -24,7 +24,11 @@ export class Imdb
     public obtenerInstanciaIMDB(nombreFichero:string)
     {
        let newObjeto = fs.readFileSync(nombreFichero);
-       let miImdb3: Imdb = JSON.parse(newObjeto);
+       let miImdb3: Imdb = new Imdb ([])
+       
+       miImdb3.peliculas = JSON.parse(newObjeto);
+
+       return miImdb3
     }
 
 

@@ -1,6 +1,7 @@
 import { Movie } from "./classMovie"
 import { Professional } from"./classProfessional"
 import { Imdb } from "./imdb"
+var fs = require("fs");
 
 let person1 = new Professional("John Soplapo", 69, "Male", 87 , 1.85 , "Blonde", "Blue", "Mongoloid", true, "Australian",  5, "Actor");
 let person2 = new Professional("Vladimir Putin", 53, "Male", 90, 1.92, "Bald", "Green", "Caucasian", false, "Russian", 0, "Director");
@@ -48,32 +49,41 @@ let miImdb: Imdb = new Imdb ([movie1,movie2,movie3])
 
 
 // console.log(miImdb.peliculas[0])
-
-
 // CONVERTIR A JASON EL OBJETO IMDB.
 // GUARDAR EL OBJETO EN UN ARCHIVO JSON CON EL NOMBRE "imdbBBDD.json".
-
-const fs = require("fs");
-
-let miJson = JSON.stringify(miImdb)
-
-fs.writeFile('imdbBBDD.json', miJson);
+// let miJson = JSON.stringify(miImdb)
+// fs.writeFileSync('imdbBBDD.json', miJson);
 
 
-
-let objeto = fs.readFileSync('./imdbBBDD.json');
-
-
-let miImdb2: Imdb = JSON.parse(objeto)
-
-console.log(miImdb2.peliculas[0].actors[1].name)
+// let objeto = fs.readFileSync('./imdbBBDD.json');
 
 
-miImdb.escribirEnFicheroJSON("newIMDB.json")
+// let miImdb2: Imdb = JSON.parse(objeto)
+
+// console.log(miImdb2.peliculas)
 
 
-// let newObjeto = fs.readFileSync('./newIMDB.json');
+// miImdb.escribirEnFicheroJSON("newIMDB.json")
+
+//////////////////////////////////////////////////////////////////////////////
+
+// let newObjeto = fs.readFileSync('newIMDB.json');
 // let miImdb3: Imdb = JSON.parse(newObjeto);
 
-miImdb3.obtenerInstanciaIMBD("newIMBD")
+// console.log("Hola");
+
+
+// console.log(miImdb3.peliculas)
+
+
+// miImdb.escribirEnFicheroJSON("newIMDB.json")
+
+
+
+let miImdb3 : Imdb = new Imdb([])
+
+
+miImdb3 = miImdb3.obtenerInstanciaIMDB("newIMDB.json")
+
+console.log(miImdb3.peliculas[0].title);
 
